@@ -14,3 +14,18 @@ export type Book = {
   /** 出版日期 */
   publishDate: Date;
 };
+
+export type EditBook = {
+  /** ID */
+  id: number;
+  /** 標題 */
+  title: string;
+  /** 類型 */
+  typeId: number;
+  /** 簡介 */
+  introduction: string;
+  /** 價格 */
+  price: number;
+  /** 出版日期 */
+  publishDate: Date;
+};
