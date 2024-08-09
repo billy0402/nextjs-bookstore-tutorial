@@ -1,9 +1,12 @@
 import type { NextPage } from 'next';
 
+import { useRouter } from 'next/router';
+
 import { Box, Button, Heading, Link, VStack } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
 import Field, { FieldConfig } from '@/components/Field';
+import { fakeBooks } from '@/fixtures/book';
 import { fakeTypes } from '@/fixtures/type';
 import type { EditBook } from '@/models/book';
 
@@ -42,11 +45,22 @@ const fieldConfigs: FieldConfig[] = [
 ];
 
 const BookEditPage: NextPage = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const book = fakeBooks.find((book) => book.id === Number(id));
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<EditBook>();
+  } = useForm<EditBook>({
+    values: {
+      ...book,
+      typeId: book?.type.id,
+      publishDate: book?.publishDate.toISOString().slice(0, 10) as any,
+    } as EditBook,
+  });
 
   const onSubmit = (data: any) => {
     console.log(data);
