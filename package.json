@@ -1,0 +1,27 @@
+{
+  "name": "prisma-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db:init": "prisma init --datasource-provider mongodb",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:reset": "prisma db push --force-reset",
+    "db:seed": "prisma db seed",
+    "db:studio": "prisma studio",
+    "db:shell": "ts-node prisma/shell.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.1",
+    "prisma": "^5.19.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
